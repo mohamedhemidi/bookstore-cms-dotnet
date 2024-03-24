@@ -1,7 +1,13 @@
+using bookstore_web_mvc;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+var dbConnection = builder.Configuration.GetConnectionString("mysqlConnection");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(dbConnection, ServerVersion.AutoDetect(dbConnection)));
 
 var app = builder.Build();
 
