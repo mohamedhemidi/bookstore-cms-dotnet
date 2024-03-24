@@ -41,7 +41,7 @@ namespace bookstore_web_mvc.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Caregories");
+                    b.ToTable("Categories");
 
                     b.HasData(
                         new

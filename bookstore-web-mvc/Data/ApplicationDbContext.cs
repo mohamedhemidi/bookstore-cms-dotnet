@@ -9,7 +9,7 @@ public class ApplicationDbContext: DbContext
         
     }
 
-    public DbSet<Category> Caregories {get; set;}
+    public DbSet<Category> Categories {get; set;}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         // base.OnModelCreating(modelBuilder);

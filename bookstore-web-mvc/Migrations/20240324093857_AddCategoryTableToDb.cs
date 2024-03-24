@@ -17,7 +17,7 @@ namespace bookstore_web_mvc.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Caregories",
+                name: "Categories",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -28,12 +28,12 @@ namespace bookstore_web_mvc.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Caregories", x => x.Id);
+                    table.PrimaryKey("PK_Categories", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.InsertData(
-                table: "Caregories",
+                table: "Categories",
                 columns: new[] { "Id", "DisplayOrder", "Name" },
                 values: new object[,]
                 {
@@ -47,7 +47,7 @@ namespace bookstore_web_mvc.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Caregories");
+                name: "Categories");
         }
     }
 }
