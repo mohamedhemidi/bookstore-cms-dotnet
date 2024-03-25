@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace bookstore_web_mvc;
+namespace bookstore_web_razor;
 
 public class ApplicationDbContext: DbContext
 {
@@ -12,7 +12,7 @@ public class ApplicationDbContext: DbContext
     public DbSet<Category> Categories {get; set;}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        base.OnModelCreating(modelBuilder);
+        // base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<Category>().HasData(
             new Category {Id = 1, Name="Sci-fi", DisplayOrder=2},
             new Category {Id = 2, Name="Novels", DisplayOrder=7},
