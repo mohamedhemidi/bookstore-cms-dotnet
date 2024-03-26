@@ -21,4 +21,10 @@
     <Folder Include="Migrations/" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\bookstore-data-access\bookstore-data-access.csproj" />
+    <ProjectReference Include="..\bookstore-models\bookstore-models.csproj" />
+    <ProjectReference Include="..\bookstore-utility\bookstore-utility.csproj" />
+  </ItemGroup>
+
 </Project>

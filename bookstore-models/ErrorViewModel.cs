@@ -1,4 +1,4 @@
-namespace bookstore_web_mvc.Models;
+namespace bookstore.bookstore_models;
 
 public class ErrorViewModel
 {

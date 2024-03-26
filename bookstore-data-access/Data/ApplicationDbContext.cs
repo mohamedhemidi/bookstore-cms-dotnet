@@ -1,6 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using bookstore.bookstore_models;
+using Microsoft.EntityFrameworkCore;
 
-namespace bookstore_web_mvc;
+namespace bookstore.bookstore_data_access.Data;
 
 public class ApplicationDbContext: DbContext
 {

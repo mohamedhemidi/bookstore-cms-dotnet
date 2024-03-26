@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using bookstore.bookstore_data_access.Data;
+using bookstore.bookstore_models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace bookstore_web_mvc;

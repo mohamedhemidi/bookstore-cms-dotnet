@@ -7,6 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookstore-web-mvc", "bookst
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookstore-web-razor", "bookstore-web-razor\bookstore-web-razor.csproj", "{25652FEC-8C0E-43AD-88FC-15B3589CCD22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookstore-data-access", "bookstore-data-access\bookstore-data-access.csproj", "{AD7BA91E-3CA4-4E35-9E57-B874BE4195A4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookstore-models", "bookstore-models\bookstore-models.csproj", "{51E07BF5-97D4-43C6-B167-808EDECCD476}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bookstore-utility", "bookstore-utility\bookstore-utility.csproj", "{8F6629AA-8CB3-4A7F-93D8-057AEFC3C33F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +27,18 @@ Global
 		{25652FEC-8C0E-43AD-88FC-15B3589CCD22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{25652FEC-8C0E-43AD-88FC-15B3589CCD22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{25652FEC-8C0E-43AD-88FC-15B3589CCD22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD7BA91E-3CA4-4E35-9E57-B874BE4195A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD7BA91E-3CA4-4E35-9E57-B874BE4195A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD7BA91E-3CA4-4E35-9E57-B874BE4195A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD7BA91E-3CA4-4E35-9E57-B874BE4195A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51E07BF5-97D4-43C6-B167-808EDECCD476}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51E07BF5-97D4-43C6-B167-808EDECCD476}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51E07BF5-97D4-43C6-B167-808EDECCD476}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51E07BF5-97D4-43C6-B167-808EDECCD476}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F6629AA-8CB3-4A7F-93D8-057AEFC3C33F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F6629AA-8CB3-4A7F-93D8-057AEFC3C33F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F6629AA-8CB3-4A7F-93D8-057AEFC3C33F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F6629AA-8CB3-4A7F-93D8-057AEFC3C33F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

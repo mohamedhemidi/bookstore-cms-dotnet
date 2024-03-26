@@ -2,20 +2,17 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using bookstore_web_mvc;
+using bookstore.bookstore_data_access.Data;
 
 #nullable disable
 
-namespace bookstore_web_mvc.Migrations
+namespace bookstore_data_access.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240324093857_AddCategoryTableToDb")]
-    partial class AddCategoryTableToDb
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,7 +21,7 @@ namespace bookstore_web_mvc.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("bookstore_web_mvc.Category", b =>
+            modelBuilder.Entity("bookstore.bookstore_models.Category", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,31 +34,12 @@ namespace bookstore_web_mvc.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(30)
+                        .HasColumnType("varchar(30)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            DisplayOrder = 2,
-                            Name = "Sci-fi"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            DisplayOrder = 7,
-                            Name = "Novels"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            DisplayOrder = 3,
-                            Name = "Action"
-                        });
                 });
 #pragma warning restore 612, 618
         }
