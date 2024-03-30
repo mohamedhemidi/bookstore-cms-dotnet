@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bookstore.bookstore_data_access.Data;
 
@@ -10,9 +11,11 @@ using bookstore.bookstore_data_access.Data;
 namespace bookstore_data_access.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240328174253_BooksTableAddedToDb")]
+    partial class BooksTableAddedToDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -33,13 +36,7 @@ namespace bookstore_data_access.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
                     b.Property<string>("ISBN")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ImageUrl")
                         .HasColumnType("longtext");
 
                     b.Property<double>("Price")
@@ -54,8 +51,6 @@ namespace bookstore_data_access.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.ToTable("Books");
 
                     b.HasData(
@@ -63,7 +58,6 @@ namespace bookstore_data_access.Migrations
                         {
                             Id = 1,
                             Author = "Haruki Murakami",
-                            CategoryId = 2,
                             Price = 2.0,
                             Stock = 3,
                             Title = "1084Q"
@@ -72,7 +66,6 @@ namespace bookstore_data_access.Migrations
                         {
                             Id = 2,
                             Author = "Sun Tzu",
-                            CategoryId = 2,
                             Price = 3.0,
                             Stock = 1,
                             Title = "Art of War"
@@ -81,7 +74,6 @@ namespace bookstore_data_access.Migrations
                         {
                             Id = 3,
                             Author = "Naomi Klein",
-                            CategoryId = 1,
                             Price = 1.0,
                             Stock = 2,
                             Title = "Shock Doctrine"
@@ -127,17 +119,6 @@ namespace bookstore_data_access.Migrations
                             DisplayOrder = 3,
                             Name = "Action"
                         });
-                });
-
-            modelBuilder.Entity("bookstore.bookstore_models.Book", b =>
-                {
-                    b.HasOne("bookstore.bookstore_models.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Category");
                 });
 #pragma warning restore 612, 618
         }

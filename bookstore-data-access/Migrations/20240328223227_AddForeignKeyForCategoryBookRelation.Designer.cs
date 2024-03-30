@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using bookstore.bookstore_data_access.Data;
 
@@ -10,9 +11,11 @@ using bookstore.bookstore_data_access.Data;
 namespace bookstore_data_access.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240328223227_AddForeignKeyForCategoryBookRelation")]
+    partial class AddForeignKeyForCategoryBookRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +40,6 @@ namespace bookstore_data_access.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ISBN")
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("ImageUrl")
                         .HasColumnType("longtext");
 
                     b.Property<double>("Price")

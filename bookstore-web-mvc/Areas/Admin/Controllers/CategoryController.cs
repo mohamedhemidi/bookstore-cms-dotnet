@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace bookstore_web_mvc;
 
+[Area("Admin")]
 public class CategoryController : Controller
 {
-    private readonly ApplicationDbContext _db;
     private readonly ICategoryRepository _categoryRepo;
     /*
     * GET Categories List
@@ -48,12 +48,8 @@ public class CategoryController : Controller
         if(id == 0 || id == null) {
             return NotFound();
         }
-        // Works only on Primary Key :
         Category category = _categoryRepo.Get(u => u.Id == id);
-        
-        // Works on any Condition :
-        //Category category = _db.Categories.FirstOrDefault(u => u.Id == id);
-        
+                
         if(category == null) {
             return NotFound();
         }
@@ -79,7 +75,6 @@ public class CategoryController : Controller
         if(id == 0 || id == null) {
             return NotFound();
         }
-        // Works only on Primary Key :
         Category category = _categoryRepo.Get(u => u.Id == id);
                 
         if(category == null) {

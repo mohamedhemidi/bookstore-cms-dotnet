@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using bookstore.bookstore_models;
 
 namespace bookstore_web_mvc.Controllers;
-
+[Area("User")]
 public class HomeController : Controller
 {
     private readonly ILogger<HomeController> _logger;

@@ -11,6 +11,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseMySql(dbConnection, ServerVersion.AutoDetect(dbConnection)));
 
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 
@@ -31,6 +32,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{area=User}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
