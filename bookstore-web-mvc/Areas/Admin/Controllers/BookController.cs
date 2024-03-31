@@ -11,19 +11,21 @@ namespace bookstore_web_mvc;
 [Area("Admin")]
 public class BookController : Controller
 {
+    private readonly IWebHostEnvironment _webHostEnvironment;
     private readonly IBookRepository _bookRepo;
     private readonly ICategoryRepository _categoryRepo;
     /*
     * GET Categories List
     */
-    public BookController(IBookRepository db, ICategoryRepository categoryDb)
+    public BookController(IBookRepository db, ICategoryRepository categoryDb, IWebHostEnvironment webHostEnvironment)
     {
         _bookRepo = db;
         _categoryRepo = categoryDb;
+        _webHostEnvironment = webHostEnvironment;
     }
     public IActionResult Index()
     {
-        List<Book> objBooksList = _bookRepo.GetAll().ToList();
+        List<Book> objBooksList = _bookRepo.GetAll(includeProperties: "Category").ToList();
         return View(objBooksList);
     }
     /*
@@ -59,7 +61,39 @@ public class BookController : Controller
     {
         if (ModelState.IsValid)
         {
-            _bookRepo.Add(bookVM.Book);
+            string wwwRootPath = _webHostEnvironment.WebRootPath;
+            if (file != null)
+            {
+                string fileName = Guid.NewGuid().ToString() + Path.GetExtension(file.FileName);
+                string bookPath = Path.Combine(wwwRootPath, @"images/books");
+
+                if (!string.IsNullOrEmpty(bookVM.Book.ImageUrl))
+                {
+                    //DELETE the old image
+                    string oldImagePath =
+                        Path.Combine(wwwRootPath, bookVM.Book.ImageUrl.Trim('/'));
+
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
+                }
+
+                using (var fileStream = new FileStream(Path.Combine(bookPath, fileName), FileMode.Create))
+                {
+                    file.CopyTo(fileStream);
+                }
+
+                bookVM.Book.ImageUrl = @"/images/books/" + fileName;
+            }
+            if (bookVM.Book.Id == 0)
+            {
+                _bookRepo.Add(bookVM.Book);
+            }
+            else
+            {
+                _bookRepo.Update(bookVM.Book);
+            }
             _bookRepo.Save();
             TempData["success"] = "Book created successfully!";
             return RedirectToAction("Index", "Book");
