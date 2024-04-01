@@ -1,10 +1,12 @@
 ﻿using bookstore.bookstore_models;
 using bookstore_models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace bookstore.bookstore_data_access.Data;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<IdentityUser>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
     {
@@ -13,6 +15,7 @@ public class ApplicationDbContext : DbContext
 
     public DbSet<Category> Categories { get; set; }
     public DbSet<Book> Books { get; set; }
+    public DbSet<ApplicationUser> ApplicationUsers { get; set; }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
